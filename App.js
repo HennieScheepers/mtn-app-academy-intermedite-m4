@@ -155,7 +155,7 @@ function FinderScreen() {
     <SafeAreaView>
     <Text>Map module to be added</Text>
     <View style={styles.profile}>
-      <Image source={require("/Users/henniescheepers/mtn-app-academy-m3/my-app/assets/img/nora-hutton-tCJ44OIqceU-unsplash.jpg")}style={styles.profilePic}/>
+      <Image source={require("/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/nora-hutton-tCJ44OIqceU-unsplash.jpg")}style={styles.profilePic}/>
       <Text style={styles.name}>girl.username</Text>
     </View>    
     </SafeAreaView>
