@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "mtn-app-academy-intermedite-m4",
+    "slug": "mtn-app-academy-intermedite-m4",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/coffee-logo-png-7519.png",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.hennie104.mtnappacademyintermeditem4"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.hennie104.mtnappacademyintermeditem4"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
