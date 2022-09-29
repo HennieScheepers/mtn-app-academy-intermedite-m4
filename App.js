@@ -4,147 +4,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import LoginScreen from './screens/LoginScreen';
+import SignUpScreen from './screens/SignUpScreen';
+import HomeScreen from './screens/HomeScreen';
 
-function LoginScreen({navigation}) {
-  return (
-    <ImageBackground 
-    source={require('/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/new-background-4.jpg')} imageStyle={{opacity: 0.65}} style={styles.container}>
-      <View style={styles.box}>
-      <Text style={styles.header}>Login</Text>
-      <View style={styles.spacebox}></View>
-      <Text style={styles.welcome}>Welcome back! Please take a moment to sign in</Text>
-      <View style={styles.spacebox}></View>
-      <TextInput style={styles.input} placeholder="Please enter username"></TextInput>
-      <View style={styles.spacebox}></View>
-      <TextInput style={styles.input} 
-        placeholder="Please enter password" secureTextEntry={true}></TextInput>
-      <View style={styles.spacebox}></View>
-      <Button title='Log In' style={styles.loginButton} onPress={() => navigation.navigate('Home')}></Button>
-      <View style={styles.spacebox}></View>
-      <Text style={styles.welcome}>New member? Please <Text onPress={() => navigation.navigate('Signup')} style= {{color: '#2196f3'}}>sign up</Text></Text>
-      <StatusBar style="auto" />
-      </View>
-    </ImageBackground>
-  );
-}
 
-function SignUpScreen({navigation}) {
-  return (
-    <ImageBackground 
-    source={require('/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/new-background-4.jpg')} imageStyle={{opacity: 0.65}} style={styles.container}>
-      <View style={styles.box}>
-      <Text style={styles.header}>Sign Up</Text>
-      <View style={styles.spacebox}></View>
-      <Text style={styles.welcome}>Welcome to Share Your Coffee! Please take a moment to sign up</Text>
-      <View style={styles.spacebox}></View>
-      <TextInput style={styles.input} placeholder="Please enter email address"></TextInput>
-      <View style={styles.spacebox}></View>
-      <TextInput style={styles.input} placeholder="Please enter username"></TextInput>
-      <View style={styles.spacebox}></View>
-      <TextInput style={styles.input} 
-        placeholder="Please enter password" secureTextEntry={true}></TextInput>
-      <View style={styles.spacebox}></View>
-      <TextInput style={styles.input} 
-        placeholder="Please confirm password" secureTextEntry={true}></TextInput>
-      <View style={styles.spacebox}></View>
-      <Button title='Sign Up' style={styles.loginButton} onPress={''}></Button>
-      <View style={styles.spacebox}></View>
-      <Text style={styles.welcome}>Already a member? Please <Text onPress={() => navigation.navigate('Login')} style= {{color: '#2196f3'}}>log in</Text></Text>
-      <StatusBar style="auto" />
-      </View>
-    </ImageBackground>
-  );
-}
+function SettingsScreen() {} {
 
-function SettingsScreen() {
   return(
     <Text>Settings Screen</Text>
-  );
-}
-
-
-function HomeScreen( navigation ) {
-  return (
-    <ImageBackground source={require('/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/new-background-4.jpg')} imageStyle={{opacity: 0.65}} style={styles.container}>
-    <SafeAreaView>
-    <ScrollView>
-    <View style={styles.scrollableItem}>
-        <Image style={styles.homeImage} source={require("/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/flat-white-3402c4f.webp")}/>
-        <View style={styles.bottomInfo}>
-          <View style={styles.icons}>
-            <Icon size={32} name="ios-heart-outline"/>
-            <Icon size={32} name="ios-navigate"/>
-          </View>
-          <View style={styles.profileName}>
-            <Image source={require("/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/nora-hutton-tCJ44OIqceU-unsplash.jpg")}style={styles.profilePic}/>
-            <Text style={styles.name}>girl.username</Text>
-          </View>
-          <Text style={styles.caption}>Mornings are better with delicious breakfast food and coffee. Too much morning, not enough coffee.</Text>
-        </View>
-      </View>
-
-      <View style={styles.scrollableItem}>
-        <Image style={styles.homeImage} source={require("/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/flat-white-3402c4f.webp")}/>
-        <View style={styles.bottomInfo}>
-          <View style={styles.icons}>
-            <Icon size={32} name="ios-heart-outline"/>
-            <Icon size={32} name="ios-navigate"/>
-          </View>
-          <View style={styles.profileName}>
-            <Image source={require("/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/nora-hutton-tCJ44OIqceU-unsplash.jpg")}style={styles.profilePic}/>
-            <Text style={styles.name}>man.username</Text>
-          </View>
-          <Text style={styles.caption}>Mornings are better with delicious breakfast food and coffee. Too much morning, not enough coffee.</Text>
-        </View>
-      </View>
-
-      <View style={styles.scrollableItem}>
-        <Image style={styles.homeImage} source={require("/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/flat-white-3402c4f.webp")}/>
-        <View style={styles.bottomInfo}>
-          <View style={styles.icons}>
-            <Icon size={32} name="ios-heart-outline"/>
-            <Icon size={32} name="ios-navigate"/>
-          </View>
-          <View style={styles.profileName}>
-            <Image source={require("/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/nora-hutton-tCJ44OIqceU-unsplash.jpg")}style={styles.profilePic}/>
-            <Text style={styles.name}>girl.username</Text>
-          </View>
-          <Text style={styles.caption}>Mornings are better with delicious breakfast food and coffee. Too much morning, not enough coffee.</Text>
-        </View>
-      </View>
-
-      <View style={styles.scrollableItem}>
-        <Image style={styles.homeImage} source={require("/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/flat-white-3402c4f.webp")}/>
-        <View style={styles.bottomInfo}>
-          <View style={styles.icons}>
-            <Icon size={32} name="ios-heart-outline"/>
-            <Icon size={32} name="ios-navigate"/>
-          </View>
-          <View style={styles.profileName}>
-            <Image source={require("/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/nora-hutton-tCJ44OIqceU-unsplash.jpg")}style={styles.profilePic}/>
-            <Text style={styles.name}>girl.username</Text>
-          </View>
-          <Text style={styles.caption}>Mornings are better with delicious breakfast food and coffee. Too much morning, not enough coffee.</Text>
-        </View>
-      </View>
-
-      <View style={styles.scrollableItem}>
-        <Image style={styles.homeImage} source={require("/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/flat-white-3402c4f.webp")}/>
-        <View style={styles.bottomInfo}>
-          <View style={styles.icons}>
-            <Icon size={32} name="ios-heart-outline"/>
-            <Icon size={32} name="ios-navigate"/>
-          </View>
-          <View style={styles.profileName}>
-            <Image source={require("/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/nora-hutton-tCJ44OIqceU-unsplash.jpg")}style={styles.profilePic}/>
-            <Text style={styles.name}>girl.username</Text>
-          </View>
-          <Text style={styles.caption}>Mornings are better with delicious breakfast food and coffee. Too much morning, not enough coffee.</Text>
-        </View>
-      </View>
-    </ScrollView>
-    </SafeAreaView>
-    </ImageBackground>
   );
 }
 
@@ -167,6 +35,12 @@ function FinderScreen() {
 const Stack = createNativeStackNavigator();
 
 function App() {
+
+  const handleSignOut = () => {
+    auth.signOut()
+    navigation.navigate("Login")
+  }
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -174,9 +48,9 @@ function App() {
         <Stack.Screen options={{headerShown: false}} name="Signup" component={SignUpScreen}/>
         <Stack.Screen name="Home" component={HomeScreen} options={({route, navigation}) => ({title: "Home Screen", headerRight: () => (<Button
                   onPress={() => navigation.navigate("Find A Spot")}
-                  title="Find a Spot!"
+                  title="Share coffee"
                 />
-)})} />
+), headerLeft: () => (<Button onPress={handleSignOut} title="Sign Out"/>)})} />
         <Stack.Screen name="Find A Spot" component={FinderScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
