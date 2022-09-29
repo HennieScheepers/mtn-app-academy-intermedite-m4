@@ -1,158 +1,192 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, ScrollView, ImageBackground, Dimensions, Button, Image, Settings, TouchableOpacityBase } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import LoginScreen from './screens/LoginScreen';
-import SignUpScreen from './screens/SignUpScreen';
-import HomeScreen from './screens/HomeScreen';
+import { StatusBar } from "expo-status-bar";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  ScrollView,
+  ImageBackground,
+  Dimensions,
+  Button,
+  Image,
+  Settings,
+  TouchableOpacityBase,
+} from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Icon from "react-native-vector-icons/Ionicons";
+import { SafeAreaView } from "react-native-safe-area-context";
+import LoginScreen from "./screens/LoginScreen";
+import SignUpScreen from "./screens/SignUpScreen";
+import HomeScreen from "./screens/HomeScreen";
+import { auth } from "./firebase";
 
-
-function SettingsScreen() {} {
-
-  return(
-    <Text>Settings Screen</Text>
-  );
+function SettingsScreen() {
+  return <Text>Settings Screen</Text>;
 }
-
 
 function FinderScreen() {
   return (
-    <ImageBackground source={require('/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/new-background-4.jpg')} imageStyle={{opacity: 0.3}} style={styles.container}>
-    <SafeAreaView>
-    <Text>Map module to be added</Text>
-    <View style={styles.profile}>
-      <Image source={require("/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/nora-hutton-tCJ44OIqceU-unsplash.jpg")}style={styles.profilePic}/>
-      <Text style={styles.name}>girl.username</Text>
-    </View>    
-    </SafeAreaView>
+    <ImageBackground
+      source={require("/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/new-background-4.jpg")}
+      imageStyle={{ opacity: 0.3 }}
+      style={styles.container}
+    >
+      <SafeAreaView>
+        <Text>Map module to be added</Text>
+        <View style={styles.profile}>
+          <Image
+            source={require("/Users/henniescheepers/mtn-app-academy-intermedite-m4/assets/img/nora-hutton-tCJ44OIqceU-unsplash.jpg")}
+            style={styles.profilePic}
+          />
+          <Text style={styles.name}>girl.username</Text>
+        </View>
+      </SafeAreaView>
     </ImageBackground>
   );
 }
 
-
 const Stack = createNativeStackNavigator();
 
-function App() {
-
+/*Stack navigation to handle basic navigation of overall app*/
+function App({ navigation }) {
+  
+/*Sign out handler for firebase*/
   const handleSignOut = () => {
-    auth.signOut()
-    navigation.navigate("Login")
-  }
+    auth.signOut();
+  };
 
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen options={{headerShown: false}} name="Login" component={LoginScreen}/>
-        <Stack.Screen options={{headerShown: false}} name="Signup" component={SignUpScreen}/>
-        <Stack.Screen name="Home" component={HomeScreen} options={({route, navigation}) => ({title: "Home Screen", headerRight: () => (<Button
-                  onPress={() => navigation.navigate("Find A Spot")}
-                  title="Share coffee"
-                />
-), headerLeft: () => (<Button onPress={handleSignOut} title="Sign Out"/>)})} />
-        <Stack.Screen name="Find A Spot" component={FinderScreen}/>
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="Login"
+          component={LoginScreen}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="Signup"
+          component={SignUpScreen}
+        />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={({ route, navigation }) => ({
+            title: "Home Screen",
+            headerRight: () => (
+              <Button
+                onPress={() => navigation.navigate("Find A Spot")}
+                title="Share coffee"
+              />
+            ),
+            headerLeft: () => (
+              <Button
+                onPress={(handleSignOut) => navigation.navigate("Login")}
+                title="Sign Out"
+              />
+            ),
+          })}
+        />
+        <Stack.Screen name="Find A Spot" component={FinderScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-
-  profile:{
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
+  profile: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
     paddingBottom: 20,
     borderBottomWidth: 0.5,
-    borderBottomColor: 'grey'
+    borderBottomColor: "grey",
   },
 
   icons: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    flexDirection: "row",
+    justifyContent: "space-evenly",
     padding: 10,
   },
 
   container: {
     flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
+    backgroundColor: "white",
+    alignItems: "center",
+    justifyContent: "flex-end",
   },
 
-  containerHome: {
-  },
+  containerHome: {},
 
   header: {
     fontSize: 28,
-    color: 'black',
-    textAlign: 'center',
+    color: "black",
+    textAlign: "center",
     padding: 0,
-    fontFamily: 'sans-serif-light'
-  
+    fontFamily: "sans-serif-light",
   },
 
   input: {
-    textAlign: 'center',
+    textAlign: "center",
     padding: 10,
     borderWidth: 2,
-    borderColor: 'white',
+    borderColor: "white",
     borderRadius: 20,
-    color: 'black',
-    fontFamily: 'sans-serif-light',
+    color: "black",
+    fontFamily: "sans-serif-light",
   },
   spacebox: {
     height: 20,
   },
   welcome: {
     fontSize: 12,
-    color: 'black',
-    textAlign: 'center',
-    fontFamily: 'sans-serif-light',
+    color: "black",
+    textAlign: "center",
+    fontFamily: "sans-serif-light",
   },
   box: {
-    backgroundColor: 'rgba(255, 255, 255, 0.65)',
+    backgroundColor: "rgba(255, 255, 255, 0.65)",
     padding: 45,
     paddingTop: 60,
     paddingBottom: 90,
     borderRadius: 20,
-    width: Dimensions.get('window').width,
-    borderColor: 'white',
+    width: Dimensions.get("window").width,
+    borderColor: "white",
     borderWidth: 3,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-    borderBottomWidth:0,
+    borderBottomWidth: 0,
   },
   loginButton: {
-    color: 'black', 
+    color: "black",
   },
 
   scrollableItem: {
-     display: 'flex',
-     flexDirection: 'column',
-     alignItems: 'center',
-     width: 350,
-     alignSelf: 'center',
-     backgroundColor: 'rgba(255, 255, 255, 0.8)',
-     borderRadius: 20,
-     margin: 10,
-     borderColor: 'white',
-     borderWidth: 2,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: 350,
+    alignSelf: "center",
+    backgroundColor: "rgba(255, 255, 255, 0.8)",
+    borderRadius: 20,
+    margin: 10,
+    borderColor: "white",
+    borderWidth: 2,
   },
   homeImage: {
-    width:'100%',
+    width: "100%",
     height: undefined,
     aspectRatio: 1,
-    borderRadius: 20
+    borderRadius: 20,
   },
 
   profileName: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
     width: 300,
     padding: 5,
     paddingTop: 0,
@@ -162,20 +196,20 @@ const styles = StyleSheet.create({
   profilePic: {
     width: 50,
     aspectRatio: 1,
-    borderRadius: 50
+    borderRadius: 50,
   },
 
   name: {
-    textAlign: 'left',
+    textAlign: "left",
     margin: 5,
     fontSize: 18,
-    fontFamily: 'sans-serif',
+    fontFamily: "sans-serif",
   },
 
   caption: {
     margin: 10,
-    textAlign: 'left',
+    textAlign: "left",
   },
 });
 
-export default App
+export default App;
